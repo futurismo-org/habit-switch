@@ -3,6 +3,7 @@ import React from 'react';
 const Home = () => (
   <div>
     <div className="center-container">
+      <h2>Titan Habit Tracker</h2>
       <div>
         <span className="timer-number">00</span>
         <span className="timer-semicolon">:</span>
@@ -34,7 +35,7 @@ const Home = () => (
       .timer-number,
       .timer-semicolon {
         color: black;
-        font-size: 15vw;
+        font-size: 10vw;
       }
 
       .timer-button-container {
