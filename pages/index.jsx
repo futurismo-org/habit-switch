@@ -24,24 +24,11 @@ const Home = () => (
     </div>
 
     <style jsx>{`
-      body {
-        margin: 0;
-        background-color: black;
-      }
-
       .center-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-      }
-
-      .inline-block {
-        display: inline-block;
-      }
-
-      .text-center {
-        text-align: center;
       }
 
       .timer-number,
@@ -51,13 +38,13 @@ const Home = () => (
       }
 
       .timer-button-container {
-        width: 50vw;
+        width: 30vw;
         display: flex;
         justify-content: space-around;
       }
 
       .timer-button {
-        font-size: 50px;
+        font-size: 30px;
       }
     `}</style>
   </div>
