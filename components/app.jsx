@@ -23,6 +23,7 @@ const App = props => (
   <StyledCenterContainer>
     <h2>Titan Habit Tracker</h2>
     <Timer
+      days={props.days}
       hours={props.hours}
       minutes={props.minutes}
       seconds={props.seconds}
