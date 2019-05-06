@@ -84,3 +84,42 @@ export function reset(state) {
     intervalID: state.intervalID
   });
 }
+
+export function startTimerAction(intervalID) {
+  return { type: 'START_TIMER', intervalID };
+}
+
+export function stopTimerAction() {
+  return { type: 'STOP_TIMER' };
+}
+
+export function updateTimerAction() {
+  return { type: 'UPDATE_TIMER' };
+}
+
+export function resetTimerAction() {
+  return { type: 'RESET_TIMER' };
+}
+
+/**
+ * Reduxのreducer タイマーの時間の状態遷移を処理する
+ * @param state Reduxのstoreで管理されている状態
+ * @param action アクションオブジェクト
+ * @return actionに応じて変化させた新しい状態
+ */
+const timer = (state = initialState(), action) => {
+  switch (action.type) {
+    case 'START_TIMER':
+      return start(state, action.intervalID);
+    case 'STOP_TIMER':
+      return stop(state);
+    case 'UPDATE_TIMER':
+      return update(state);
+    case 'RESET_TIMER':
+      return reset(state);
+    default:
+      return state;
+  }
+};
+
+export default timer;
