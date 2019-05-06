@@ -19,21 +19,8 @@ const toText = time => `00${time}`.slice(-2);
 export function start(state, intervalID) {
   return Object.assign({}, state, {
     started: true,
-    intervalID
-  });
-}
-
-/**
- * タイマーの状態を停止状態に変更する
- * @param state タイマーの状態
- * @return タイマーの停止状態
- */
-export function stop(state) {
-  clearInterval(state.intervalID);
-
-  return Object.assign({}, state, {
-    started: false,
-    intervalID: -1
+    intervalID,
+    startTime: new Date()
   });
 }
 
@@ -43,7 +30,12 @@ export function stop(state) {
  * @return 時間を1秒進めた新しい状態
  */
 export function update(state) {
-  const time = state.time + 1;
+  let { time } = state;
+
+  if (state.startTime !== null) {
+    time = parseInt((new Date() - Date.parse(state.startTime)) / 1000);
+  }
+
   const days = toDays(time);
   const hours = toHours(time);
   const minutes = toMinutes(time);
@@ -69,7 +61,8 @@ export function initialState() {
     seconds: '00',
     time: 0,
     started: false,
-    intervalID: -1
+    intervalID: -1,
+    startTime: null
   };
 }
 
@@ -78,18 +71,18 @@ export function initialState() {
  * @return タイマーの初期状態
  */
 export function reset(state) {
+  clearInterval(state.intervalID);
+
   return Object.assign({}, initialState(), {
-    started: state.started,
-    intervalID: state.intervalID
+    started: false,
+    intervalID: -1,
+    time: 0,
+    startTime: null
   });
 }
 
 export function startTimerAction(intervalID) {
   return { type: 'START_TIMER', intervalID };
-}
-
-export function stopTimerAction() {
-  return { type: 'STOP_TIMER' };
 }
 
 export function updateTimerAction() {
@@ -110,8 +103,6 @@ export const reducer = (state = initialState(), action) => {
   switch (action.type) {
     case 'START_TIMER':
       return start(state, action.intervalID);
-    case 'STOP_TIMER':
-      return stop(state);
     case 'UPDATE_TIMER':
       return update(state);
     case 'RESET_TIMER':

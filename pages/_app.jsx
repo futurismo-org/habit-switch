@@ -19,10 +19,13 @@ class MyApp extends App {
   componentDidMount() {
     // DISPATCH ACTIONS HERE FROM `mapDispatchToProps`
     // TO TICK THE CLOCK
+    /* eslint-disable no-undef */
     const store = this.props.reduxStore;
-    const { started } = JSON.parse(localStorage.getItem('persist:root')); // eslint-disable-line no-undef
-    if (started === 'true') {
-      setInterval(() => store.dispatch(updateTimerAction()), 1000);
+    if (localStorage.getItem('persist:root')) {
+      const { started } = JSON.parse(localStorage.getItem('persist:root'));
+      if (started === 'true') {
+        setInterval(() => store.dispatch(updateTimerAction()), 1000);
+      }
     }
   }
 
