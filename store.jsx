@@ -2,21 +2,11 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
 
-function toHours(time) {
-  return parseInt(time / 60 / 60);
-}
-
-function toMinutes(time) {
-  return parseInt((time / 60) % 60);
-}
-
-function toSeconds(time) {
-  return time % 60;
-}
-
-function toText(time) {
-  return `00${time}`.slice(-2);
-}
+const toDays = time => parseInt(time / 60 / 60 / 24);
+const toHours = time => parseInt(time / 60 / 60);
+const toMinutes = time => parseInt((time / 60) % 60);
+const toSeconds = time => time % 60;
+const toText = time => `00${time}`.slice(-2);
 
 /**
  * タイマーの状態を開始状態に変更する
@@ -52,11 +42,13 @@ export function stop(state) {
  */
 export function update(state) {
   const time = state.time + 1;
+  const days = toDays(time);
   const hours = toHours(time);
   const minutes = toMinutes(time);
   const seconds = toSeconds(time);
 
   return Object.assign({}, state, {
+    days,
     hours: toText(hours),
     minutes: toText(minutes),
     seconds: toText(seconds),
@@ -69,6 +61,7 @@ export function update(state) {
  */
 export function initialState() {
   return {
+    days: 0,
     hours: '00',
     minutes: '00',
     seconds: '00',
