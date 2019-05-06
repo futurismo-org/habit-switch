@@ -3,7 +3,9 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "export": "next export",
+    "start": "next start",
+    "deploy": "npm run build && npm run export"
   },
   "dependencies": {
     "next": "^8.1.0",
