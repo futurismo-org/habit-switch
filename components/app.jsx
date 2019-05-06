@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import Timer from './timer';
+import TimerButton from './timer-button';
 
 const StyledCenterContainer = styled.div`
   display: flex;
@@ -18,10 +19,6 @@ const StyledTimerButtonContainer = styled.div`
   justify-content: space-around;
 `;
 
-const StyledTimerButton = styled.button`
-  font-size: 30px;
-`;
-
 const App = props => (
   <StyledCenterContainer>
     <h2>Titan Habit Tracker</h2>
@@ -31,15 +28,9 @@ const App = props => (
       seconds={props.seconds}
     />
     <StyledTimerButtonContainer>
-      <StyledTimerButton type="button" name="button">
-        START
-      </StyledTimerButton>
-      <StyledTimerButton type="button" name="button">
-        STOP
-      </StyledTimerButton>
-      <StyledTimerButton type="button" name="button">
-        RESET
-      </StyledTimerButton>
+      <TimerButton text="START" handleClick={props.startTimer} />
+      <TimerButton text="STOP" handleClick={props.stopTimer} />
+      <TimerButton text="RESET" handleClick={props.resetTimer} />
     </StyledTimerButtonContainer>
   </StyledCenterContainer>
 );
