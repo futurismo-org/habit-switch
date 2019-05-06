@@ -1,8 +1,9 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import { Provider } from 'react-redux';
+import withReduxStore from '../lib/with-redux-store';
 
-export default class MyApp extends App {
+class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
     let pageProps = {};
 
@@ -25,3 +26,5 @@ export default class MyApp extends App {
     );
   }
 }
+
+export default withReduxStore(MyApp);
