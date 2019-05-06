@@ -8,7 +8,7 @@ const StyledTimer = styled.span`
 
 const Timer = props => (
   <div>
-    <StyledTimer> {props.hours} </StyledTimer>
+    <StyledTimer>{props.hours}</StyledTimer>
     <StyledTimer>:</StyledTimer>
     <StyledTimer>{props.minutes}</StyledTimer>
     <StyledTimer>:</StyledTimer>
