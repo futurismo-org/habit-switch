@@ -10,6 +10,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
@@ -20,6 +21,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.13.0",
+    "husky": "^2.2.0",
     "prettier": "^1.17.0"
   }
 }
