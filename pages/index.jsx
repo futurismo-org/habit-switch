@@ -1,5 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
+import {
+  updateTimerAction,
+  startTimerAction,
+  stopTimerAction,
+  resetTimerAction
+} from '../store';
 
 const StyledCenterContainer = styled.div`
   display: flex;
@@ -48,8 +55,6 @@ const Home = () => (
   </StyledCenterContainer>
 );
 
-export default Home;
-
 /**
  * reduxで管理しているstateをreact側に渡す
  * @param state reduxのstoreで管理されている状態
@@ -63,17 +68,14 @@ function mapStateToProps(state) {
  * reactで受け取るユーザーアクションとreduxのアクションを連携させる
  * @param dispatch reduxのreducerにアクションを渡す関数
  */
-function mapDispatchToProps(dispatch, props) {
+function mapDispatchToProps(dispatch) {
   return {
     startTimer: () => {
-      const intervalID = setInterval(
-        () => dispatch(action.updateTimerAction()),
-        1000
-      );
-      dispatch(action.startTimerAction(intervalID));
+      const intervalID = setInterval(() => dispatch(updateTimerAction()), 1000);
+      dispatch(startTimerAction(intervalID));
     },
-    stopTimer: () => dispatch(action.stopTimerAction()),
-    resetTimer: () => dispatch(action.resetTimerAction())
+    stopTimer: () => dispatch(stopTimerAction()),
+    resetTimer: () => dispatch(resetTimerAction())
   };
 }
 
@@ -91,4 +93,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps,
   mergeProps
-)(App);
+)(Home);

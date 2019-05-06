@@ -1,3 +1,7 @@
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunkMiddleware from 'redux-thunk';
+
 function toHours(time) {
   return parseInt(time / 60 / 60);
 }
@@ -107,7 +111,7 @@ export function resetTimerAction() {
  * @param action アクションオブジェクト
  * @return actionに応じて変化させた新しい状態
  */
-const timer = (state = initialState(), action) => {
+export const reducer = (state = initialState(), action) => {
   switch (action.type) {
     case 'START_TIMER':
       return start(state, action.intervalID);
@@ -122,4 +126,10 @@ const timer = (state = initialState(), action) => {
   }
 };
 
-export default timer;
+export function initializeStore(state = initialState()) {
+  return createStore(
+    reducer,
+    state,
+    composeWithDevTools(applyMiddleware(thunkMiddleware))
+  );
+}

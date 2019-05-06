@@ -7,6 +7,9 @@ module.exports = {
     'no-param-reassign': 0,
     'react/destructuring-assignment': 0,
     'react/require-default-props': 0,
-    radix: 0
+    radix: 0,
+    'no-unused-vars': 0,
+    'no-underscore-dangle': 0,
+    'react/prop-types': 0
   }
 };
