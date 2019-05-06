@@ -1,6 +1,8 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 const toDays = time => parseInt(time / 60 / 60 / 24);
 const toHours = time => parseInt(time / 60 / 60);
@@ -119,10 +121,20 @@ export const reducer = (state = initialState(), action) => {
   }
 };
 
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['time']
+};
+
+const persistedReducer = persistReducer(persistConfig, reducer);
+
 export function initializeStore(state = initialState()) {
   return createStore(
-    reducer,
+    persistedReducer,
     state,
     composeWithDevTools(applyMiddleware(thunkMiddleware))
   );
 }
+
+export const persistor = store => persistStore(store);

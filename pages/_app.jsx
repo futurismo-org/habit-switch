@@ -1,7 +1,9 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import withReduxStore from '../lib/with-redux-store';
+import { persistor } from '../store';
 
 class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -20,7 +22,9 @@ class MyApp extends App {
     return (
       <Container>
         <Provider store={reduxStore}>
-          <Component {...pageProps} />
+          <PersistGate loading={null} persistor={persistor(reduxStore)}>
+            <Component {...pageProps} />
+          </PersistGate>
         </Provider>
       </Container>
     );
