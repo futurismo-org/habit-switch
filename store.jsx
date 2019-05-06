@@ -123,8 +123,7 @@ export const reducer = (state = initialState(), action) => {
 
 const persistConfig = {
   key: 'root',
-  storage,
-  whitelist: ['time']
+  storage
 };
 
 const persistedReducer = persistReducer(persistConfig, reducer);
