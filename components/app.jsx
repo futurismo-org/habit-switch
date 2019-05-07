@@ -30,7 +30,6 @@ const App = props => (
     />
     <StyledTimerButtonContainer>
       <TimerButton text="START" handleClick={props.startTimer} />
-      <TimerButton text="STOP" handleClick={props.stopTimer} />
       <TimerButton text="RESET" handleClick={props.resetTimer} />
     </StyledTimerButtonContainer>
   </StyledCenterContainer>

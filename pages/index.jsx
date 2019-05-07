@@ -1,10 +1,8 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import App from '../components/app';
 import {
   updateTimerAction,
   startTimerAction,
-  stopTimerAction,
   resetTimerAction
 } from '../store';
 
@@ -27,7 +25,6 @@ function mapDispatchToProps(dispatch) {
       const intervalID = setInterval(() => dispatch(updateTimerAction()), 1000);
       dispatch(startTimerAction(intervalID));
     },
-    stopTimer: () => dispatch(stopTimerAction()),
     resetTimer: () => dispatch(resetTimerAction())
   };
 }

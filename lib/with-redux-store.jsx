@@ -11,6 +11,7 @@ function getOrCreateStore(initialState) {
   }
 
   // Create store if unavailable on the client and set it on the window object
+  /* eslint-disable no-undef */
   if (!window[__NEXT_REDUX_STORE__]) {
     window[__NEXT_REDUX_STORE__] = initializeStore(initialState);
   }
