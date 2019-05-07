@@ -10,6 +10,7 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "next": "^8.1.0",
+    "next-offline": "^3.3.8",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-confirm-alert": "^2.4.1",

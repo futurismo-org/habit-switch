@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { confirmAlert } from 'react-confirm-alert';
+import Head from 'next/head';
 import Timer from './timer';
 import TimerButton from './timer-button';
 
@@ -19,6 +20,13 @@ const StyledTimerButtonContainer = styled.div`
   display: flex;
   justify-content: space-around;
 `;
+
+const HeadComponent = () => (
+  <Head>
+    <link rel="manifest" href="/static/manifest.json" />
+    <link rel="shortcut icon" href="/static/favicon.ico" />
+  </Head>
+);
 
 const App = props => {
   const confirm = () => {
@@ -38,19 +46,22 @@ const App = props => {
   };
 
   return (
-    <StyledCenterContainer>
-      <h2>Titan Habit Tracker</h2>
-      <Timer
-        days={props.days}
-        hours={props.hours}
-        minutes={props.minutes}
-        seconds={props.seconds}
-      />
-      <StyledTimerButtonContainer>
-        <TimerButton text="スタート" handleClick={props.startTimer} />
-        <TimerButton text="リセット" handleClick={confirm} />
-      </StyledTimerButtonContainer>
-    </StyledCenterContainer>
+    <div>
+      <HeadComponent />
+      <StyledCenterContainer>
+        <h2>Titan Habit Tracker</h2>
+        <Timer
+          days={props.days}
+          hours={props.hours}
+          minutes={props.minutes}
+          seconds={props.seconds}
+        />
+        <StyledTimerButtonContainer>
+          <TimerButton text="スタート" handleClick={props.startTimer} />
+          <TimerButton text="リセット" handleClick={confirm} />
+        </StyledTimerButtonContainer>
+      </StyledCenterContainer>
+    </div>
   );
 };
 

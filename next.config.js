@@ -1,4 +1,4 @@
-module.exports = {
+const nextConfig = {
   webpack: config => {
     // Fixes npm packages that depend on `fs` module
     config.node = {
@@ -10,5 +10,6 @@ module.exports = {
 };
 
 const withCSS = require('@zeit/next-css');
+const withOffline = require('next-offline');
 
-module.exports = withCSS();
+module.exports = withOffline(withCSS(nextConfig));
