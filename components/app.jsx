@@ -16,7 +16,6 @@ const StyledCenterContainer = styled.div`
 
 const StyledTimerButtonContainer = styled.div`
   margin: 10px;
-  width: 30vw;
   display: flex;
   justify-content: space-around;
 `;
