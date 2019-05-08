@@ -2,12 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
 
-import { confirmAlert } from 'react-confirm-alert';
 import Head from 'next/head';
 import Timer from './timer';
 import TimerButton from './timer-button';
-
-import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const StyledCenterContainer = styled.div`
   display: flex;
@@ -38,19 +35,10 @@ const formatDate = datetime => {
 
 const App = props => {
   const confirm = () => {
-    confirmAlert({
-      title: '確認',
-      message: '本当にリセットしますか？',
-      buttons: [
-        {
-          label: 'Yes',
-          onClick: () => props.resetTimer()
-        },
-        {
-          label: 'No'
-        }
-      ]
-    });
+    /* eslint-disable no-undef */
+    if (window.confirm('本当にリセットしますか？')) {
+      props.resetTimer();
+    }
   };
 
   return (
