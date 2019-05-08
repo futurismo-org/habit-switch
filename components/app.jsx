@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import moment from 'moment';
 
 import { confirmAlert } from 'react-confirm-alert';
 import Head from 'next/head';
@@ -56,6 +57,9 @@ const App = props => {
           minutes={props.minutes}
           seconds={props.seconds}
         />
+        <h3>
+          開始日: {moment(props.startTime).format('YYYY年MM月DD日 HH:mm')}
+        </h3>
         <StyledTimerButtonContainer>
           <TimerButton text="スタート" handleClick={props.startTimer} />
           <TimerButton text="リセット" handleClick={confirm} />
