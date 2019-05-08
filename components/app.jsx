@@ -29,6 +29,13 @@ const HeadComponent = () => (
   </Head>
 );
 
+const formatDate = datetime => {
+  if (datetime !== null) {
+    return moment(datetime).format('YYYY年MM月DD日 HH:mm');
+  }
+  return 'なし';
+};
+
 const App = props => {
   const confirm = () => {
     confirmAlert({
@@ -57,9 +64,7 @@ const App = props => {
           minutes={props.minutes}
           seconds={props.seconds}
         />
-        <h3>
-          開始日: {moment(props.startTime).format('YYYY年MM月DD日 HH:mm')}
-        </h3>
+        <h3>開始日: {formatDate(props.startTime)}</h3>
         <StyledTimerButtonContainer>
           <TimerButton text="スタート" handleClick={props.startTimer} />
           <TimerButton text="リセット" handleClick={confirm} />
