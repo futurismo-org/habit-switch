@@ -3,10 +3,13 @@ import styled from 'styled-components';
 import moment from 'moment';
 
 import Head from 'next/head';
+import AppBar from '@material-ui/core/AppBar';
+import Typography from '@material-ui/core/Typography';
 import Timer from './timer';
 import TimerButton from './timer-button';
 
 const StyledCenterContainer = styled.div`
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -44,8 +47,12 @@ const App = props => {
   return (
     <div>
       <HeadComponent />
+      <AppBar>
+        <Typography variant="h5" color="inherit">
+          Titan Habit Tracker
+        </Typography>
+      </AppBar>
       <StyledCenterContainer>
-        <h2>Titan Habit Tracker</h2>
         <Timer
           days={props.days}
           hours={props.hours}
@@ -54,8 +61,16 @@ const App = props => {
         />
         <h3>開始日: {formatDate(props.startTime)}</h3>
         <StyledTimerButtonContainer>
-          <TimerButton text="スタート" handleClick={props.startTimer} />
-          <TimerButton text="リセット" handleClick={confirm} />
+          <TimerButton
+            text="スタート"
+            color="primary"
+            handleClick={props.startTimer}
+          />
+          <TimerButton
+            text="リセット"
+            color="secondary"
+            handleClick={confirm}
+          />
         </StyledTimerButtonContainer>
       </StyledCenterContainer>
     </div>
