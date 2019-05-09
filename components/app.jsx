@@ -9,6 +9,7 @@ import Timer from './timer';
 import TimerButton from './timer-button';
 
 const StyledCenterContainer = styled.div`
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
