@@ -54,8 +54,16 @@ const App = props => {
         />
         <h3>開始日: {formatDate(props.startTime)}</h3>
         <StyledTimerButtonContainer>
-          <TimerButton text="スタート" handleClick={props.startTimer} />
-          <TimerButton text="リセット" handleClick={confirm} />
+          <TimerButton
+            text="スタート"
+            color="primary"
+            handleClick={props.startTimer}
+          />
+          <TimerButton
+            text="リセット"
+            color="secondary"
+            handleClick={confirm}
+          />
         </StyledTimerButtonContainer>
       </StyledCenterContainer>
     </div>
