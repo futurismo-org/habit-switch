@@ -1,9 +1,9 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
-const title = 'オナ禁チャレンジ';
+const title = '継続チャレンジ';
 const content = '';
-const hashtags = 'オナ禁';
+const hashtags = '';
 const url = 'https://titan-habit-tracker.netlify.com';
 
 const formatTime = time => {
