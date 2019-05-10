@@ -26,6 +26,7 @@ const StyledTimerButtonContainer = styled.div`
 
 const StyledTwitterFormContainer = styled.div`
   margin: 10px;
+  text-align: center;
   justify-content: space-around;
 `;
 
