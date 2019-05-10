@@ -7,6 +7,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Timer from './timer';
 import TimerButton from './timer-button';
+import TwitterButton from './twitter-button';
 
 const StyledCenterContainer = styled.div`
   margin-top: 50px;
@@ -72,6 +73,11 @@ const App = props => {
             handleClick={confirm}
           />
         </StyledTimerButtonContainer>
+        <TwitterButton
+          days={props.days}
+          hours={props.hours}
+          minutes={props.minutes}
+        />
       </StyledCenterContainer>
     </div>
   );
