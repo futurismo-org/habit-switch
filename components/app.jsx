@@ -81,7 +81,10 @@ const App = props => {
           />
         </StyledTimerButtonContainer>
         <StyledTwitterFormContainer>
-          <TwitterForm />
+          <TwitterForm
+            title={props.twitterTitle}
+            content={props.twitterContent}
+          />
           <TwitterButton
             days={props.days}
             hours={props.hours}

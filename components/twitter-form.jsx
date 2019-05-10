@@ -4,12 +4,12 @@ import TextField from '@material-ui/core/TextField';
 
 const TwitterForm = props => (
   <form noValidate autoComplete="off">
-    <TextField label="タイトル" value="継続チャレンジ" />
+    <TextField label="タイトル" value={props.title} />
     <TextField
       label="内容"
       multiline
       rowsMax="4"
-      value=""
+      value={props.content}
       margin="normal"
       variant="outlined"
     />

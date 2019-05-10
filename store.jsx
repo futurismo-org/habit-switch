@@ -62,7 +62,9 @@ export function initialState() {
     time: 0,
     started: false,
     intervalID: -1,
-    startTime: null
+    startTime: null,
+    twitterTitle: '継続チャレンジ',
+    twitterContent: ''
   };
 }
 
