@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 
 const title = 'オナ禁チャレンジ';
 const content = '';
@@ -36,7 +37,9 @@ const TwitterButton = props => (
       rel="nofollow"
       className="twitter-button"
     >
-      Twitterでシェア
+      <Button variant="contained" color={props.color}>
+        Twitterでシェア
+      </Button>
     </a>
   </div>
 );
