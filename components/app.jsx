@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Timer from './timer';
 import TimerButton from './timer-button';
 import TwitterButton from './twitter-button';
+import TwitterForm from './twitter-form';
 
 const StyledCenterContainer = styled.div`
   margin-top: 50px;
@@ -20,6 +21,11 @@ const StyledCenterContainer = styled.div`
 const StyledTimerButtonContainer = styled.div`
   margin: 10px;
   display: flex;
+  justify-content: space-around;
+`;
+
+const StyledTwitterFormContainer = styled.div`
+  margin: 10px;
   justify-content: space-around;
 `;
 
@@ -73,11 +79,14 @@ const App = props => {
             handleClick={confirm}
           />
         </StyledTimerButtonContainer>
-        <TwitterButton
-          days={props.days}
-          hours={props.hours}
-          minutes={props.minutes}
-        />
+        <StyledTwitterFormContainer>
+          <TwitterForm />
+          <TwitterButton
+            days={props.days}
+            hours={props.hours}
+            minutes={props.minutes}
+          />
+        </StyledTwitterFormContainer>
       </StyledCenterContainer>
     </div>
   );
