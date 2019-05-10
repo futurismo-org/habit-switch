@@ -11,7 +11,7 @@ import TwitterButton from './twitter-button';
 import TwitterForm from './twitter-form';
 
 const StyledCenterContainer = styled.div`
-  margin-top: 50px;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;

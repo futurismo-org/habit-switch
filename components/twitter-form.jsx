@@ -8,6 +8,7 @@ const TwitterForm = props => (
     <TextField
       label="内容"
       multiline
+      rowsMax="4"
       value=""
       margin="normal"
       variant="outlined"
