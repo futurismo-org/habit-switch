@@ -83,6 +83,12 @@ export function reset(state) {
   });
 }
 
+export function setTitle(state, title) {
+  return Object.assign({}, state, {
+    twitterTitle: title
+  });
+}
+
 export function startTimerAction(intervalID) {
   return { type: 'START_TIMER', intervalID };
 }
@@ -93,6 +99,10 @@ export function updateTimerAction() {
 
 export function resetTimerAction() {
   return { type: 'RESET_TIMER' };
+}
+
+export function setTitleAction() {
+  return { type: 'SET_TWITTER_TITLE' };
 }
 
 /**
@@ -109,6 +119,8 @@ export const reducer = (state = initialState(), action) => {
       return update(state);
     case 'RESET_TIMER':
       return reset(state);
+    case 'SET_TWITTER_TITLE':
+      return setTitle(state, action.twitterTitle);
     default:
       return state;
   }
