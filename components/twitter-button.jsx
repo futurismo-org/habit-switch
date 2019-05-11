@@ -27,7 +27,7 @@ const textBuilder = props =>
 
 const TwitterButton = props => (
   <div>
-    <a href={textBuilder(props)} rel="nofollow" className="twitter-button">
+    <a href={textBuilder(props)} rel="noopener noreferrer" target="_blank">
       <Button variant="contained" color={props.color}>
         Twitterでシェア
       </Button>
