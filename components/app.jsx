@@ -9,6 +9,7 @@ import Timer from './timer';
 import TimerButton from './timer-button';
 import TwitterButton from './twitter-button';
 import TwitterForm from './twitter-form';
+import { updateTitle } from '../store';
 
 const StyledCenterContainer = styled.div`
   margin-top: 80px;
@@ -81,7 +82,12 @@ const App = props => {
           />
         </StyledTimerButtonContainer>
         <StyledTwitterFormContainer>
-          <TwitterForm title={props.title} content={props.content} />
+          <TwitterForm
+            title={props.title}
+            content={props.content}
+            handleTitle={props.updateTitle}
+            handleContent={props.updateContent}
+          />
           <TwitterButton
             days={props.days}
             hours={props.hours}

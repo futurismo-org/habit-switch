@@ -3,7 +3,9 @@ import App from '../components/app';
 import {
   updateTimerAction,
   startTimerAction,
-  resetTimerAction
+  resetTimerAction,
+  updateTitleAction,
+  updateContentAction
 } from '../store';
 
 /**
@@ -25,7 +27,9 @@ function mapDispatchToProps(dispatch) {
       const intervalID = setInterval(() => dispatch(updateTimerAction()), 1000);
       dispatch(startTimerAction(intervalID));
     },
-    resetTimer: () => dispatch(resetTimerAction())
+    resetTimer: () => dispatch(resetTimerAction()),
+    updateTitle: e => dispatch(updateTitleAction(e.target.value)),
+    updateContent: e => dispatch(updateContentAction(e.target.value))
   };
 }
 

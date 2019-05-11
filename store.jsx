@@ -62,9 +62,7 @@ export function initialState() {
     time: 0,
     started: false,
     intervalID: -1,
-    startTime: null,
-    title: '継続チャレンジ',
-    content: ''
+    startTime: null
   };
 }
 
@@ -89,6 +87,12 @@ export function updateTitle(state, title) {
   });
 }
 
+export function updateContent(state, content) {
+  return Object.assign({}, state, {
+    content
+  });
+}
+
 export function startTimerAction(intervalID) {
   return { type: 'START_TIMER', intervalID };
 }
@@ -101,8 +105,12 @@ export function resetTimerAction() {
   return { type: 'RESET_TIMER' };
 }
 
-export function updateTitleAction() {
-  return { type: 'UPDATE_TITLE' };
+export function updateTitleAction(title) {
+  return { type: 'UPDATE_TITLE', title };
+}
+
+export function updateContentAction(content) {
+  return { type: 'UPDATE_CONTENT', content };
 }
 
 /**
@@ -121,6 +129,8 @@ export const reducer = (state = initialState(), action) => {
       return reset(state);
     case 'UPDATE_TITLE':
       return updateTitle(state, action.title);
+    case 'UPDATE_CONTENT':
+      return updateContent(state, action.content);
     default:
       return state;
   }
