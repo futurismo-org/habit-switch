@@ -17,9 +17,7 @@ const Container = styled.div`
 `;
 
 const StyledCenterContainer = styled.div`
-  @media screen and (max-width: 768px) {
-    margin-top: 80px;
-  }
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
