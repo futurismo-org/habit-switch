@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
+import html2canvas from 'html2canvas';
 
 import Head from 'next/head';
 import AppBar from '@material-ui/core/AppBar';
@@ -62,6 +63,20 @@ const App = props => {
     }
   };
 
+  /*
+  const generate = () => {
+    html2canvas(document.getElementById('generate-image')).then(canvas => {
+      const a = document.createElement('a');
+      a.href = canvas
+        .toDataURL('image/jpeg')
+        .replace('image/jpeg', 'image/octet-stream');
+      a.download = 'banner.jpg';
+      a.click();
+    });
+  };
+  */
+  const generate = () => {};
+
   return (
     <Container>
       <HeadComponent />
@@ -103,6 +118,7 @@ const App = props => {
             minutes={props.minutes}
             title={props.title}
             content={props.content}
+            handleClick={generate}
           />
         </StyledTwitterFormContainer>
       </StyledCenterContainer>
