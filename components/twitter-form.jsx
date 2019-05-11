@@ -1,9 +1,11 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import store from '../store';
+import { setTitle } from '../store';
 
-const handleTitleChange = event => {
-  store.setTwitterTitle(event.target.value);
+const handleChange = name => event => {
+  if (name === 'title') {
+    setTitle(event.target.value);
+  }
 };
 
 const TwitterForm = props => (
@@ -11,7 +13,7 @@ const TwitterForm = props => (
     <TextField
       label="タイトル"
       value={props.title}
-      onChange={handleTitleChange()}
+      onChange={handleChange('title')}
     />
     <TextField
       label="内容"
