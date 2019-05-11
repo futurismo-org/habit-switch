@@ -63,8 +63,8 @@ export function initialState() {
     started: false,
     intervalID: -1,
     startTime: null,
-    twitterTitle: '継続チャレンジ',
-    twitterContent: ''
+    title: '継続チャレンジ',
+    content: ''
   };
 }
 
@@ -83,9 +83,9 @@ export function reset(state) {
   });
 }
 
-export function setTitle(state, title) {
+export function updateTitle(state, title) {
   return Object.assign({}, state, {
-    twitterTitle: title
+    title
   });
 }
 
@@ -101,8 +101,8 @@ export function resetTimerAction() {
   return { type: 'RESET_TIMER' };
 }
 
-export function setTitleAction() {
-  return { type: 'SET_TWITTER_TITLE' };
+export function updateTitleAction() {
+  return { type: 'UPDATE_TITLE' };
 }
 
 /**
@@ -119,8 +119,8 @@ export const reducer = (state = initialState(), action) => {
       return update(state);
     case 'RESET_TIMER':
       return reset(state);
-    case 'SET_TWITTER_TITLE':
-      return setTitle(state, action.twitterTitle);
+    case 'UPDATE_TITLE':
+      return updateTitle(state, action.title);
     default:
       return state;
   }
