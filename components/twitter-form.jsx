@@ -1,8 +1,15 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
+import styled from 'styled-components';
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+`;
 
 const TwitterForm = props => (
-  <form noValidate autoComplete="off">
+  <StyledForm noValidate autoComplete="off">
     <TextField
       label="タイトル"
       value={props.title}
@@ -17,7 +24,7 @@ const TwitterForm = props => (
       variant="outlined"
       onChange={props.handleContent}
     />
-  </form>
+  </StyledForm>
 );
 
 export default TwitterForm;
