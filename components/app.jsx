@@ -63,11 +63,19 @@ const App = props => {
     }
   };
 
+  /*
   const generate = () => {
     html2canvas(document.getElementById('generate-image')).then(canvas => {
-      document.body.appendChild(canvas);
+      const a = document.createElement('a');
+      a.href = canvas
+        .toDataURL('image/jpeg')
+        .replace('image/jpeg', 'image/octet-stream');
+      a.download = 'banner.jpg';
+      a.click();
     });
   };
+  */
+  const generate = () => {};
 
   return (
     <Container>
@@ -94,7 +102,7 @@ const App = props => {
           <TimerButton
             text="リセット"
             color="secondary"
-            handleClick={generate}
+            handleClick={confirm}
           />
         </StyledTimerButtonContainer>
         <StyledTwitterFormContainer>
@@ -110,6 +118,7 @@ const App = props => {
             minutes={props.minutes}
             title={props.title}
             content={props.content}
+            handleClick={generate}
           />
         </StyledTwitterFormContainer>
       </StyledCenterContainer>

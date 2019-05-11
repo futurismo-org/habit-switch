@@ -28,7 +28,11 @@ const textBuilder = props =>
 const TwitterButton = props => (
   <div>
     <a href={textBuilder(props)} rel="noopener noreferrer" target="_blank">
-      <Button variant="contained" color={props.color}>
+      <Button
+        variant="contained"
+        color={props.color}
+        onClick={props.handleClick}
+      >
         Twitterでシェア
       </Button>
     </a>
