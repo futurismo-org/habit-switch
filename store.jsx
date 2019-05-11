@@ -5,7 +5,7 @@ import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const toDays = time => parseInt(time / 60 / 60 / 24);
-const toHours = time => parseInt(time / 60 / 60);
+const toHours = time => parseInt((time / 60 / 60) % 24);
 const toMinutes = time => parseInt((time / 60) % 60);
 const toSeconds = time => time % 60;
 const toText = time => `00${time}`.slice(-2);
