@@ -9,7 +9,12 @@ import Timer from './timer';
 import TimerButton from './timer-button';
 import TwitterButton from './twitter-button';
 import TwitterForm from './twitter-form';
-import { updateTitle } from '../store';
+import Footer from './footer';
+
+const Container = styled.div`
+  width: 100%;
+  overflow: hidden;
+`;
 
 const StyledCenterContainer = styled.div`
   @media screen and (max-width: 768px) {
@@ -36,6 +41,11 @@ const HeadComponent = () => (
   <Head>
     <link rel="manifest" href="/static/manifest.json" />
     <link rel="shortcut icon" href="/static/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <meta charSet="utf-8" />
   </Head>
 );
 
@@ -55,9 +65,9 @@ const App = props => {
   };
 
   return (
-    <div>
+    <Container>
       <HeadComponent />
-      <AppBar>
+      <AppBar color="primary">
         <Typography variant="h5" color="inherit">
           Titan Habit Tracker
         </Typography>
@@ -98,7 +108,8 @@ const App = props => {
           />
         </StyledTwitterFormContainer>
       </StyledCenterContainer>
-    </div>
+      <Footer />
+    </Container>
   );
 };
 
