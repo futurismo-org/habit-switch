@@ -1,9 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 
-const title = '継続チャレンジ';
-const content = '';
-const hashtags = '';
 const url = 'https://titan-habit-tracker.netlify.com';
 
 const formatTime = time => {
@@ -13,11 +10,13 @@ const formatTime = time => {
   return time;
 };
 
+const length = props =>
+  `${formatTime(props.days)}日${props.hours}時間${props.minutes}分`;
+
 const textBuilder = props =>
-  `https://twitter.com/intent/tweet?text=${title}%20${formatTime(props.days)}日
-  ${props.hours}時間
-  ${props.minutes}分
-  達成しました！%0a%0a${content}%0a%0a${url}&hashtags=${hashtags}`;
+  `https://twitter.com/intent/tweet?text=${props.title}%0a${length(
+    props
+  )}達成しました！%0a${props.content}%0a%0a${url}`;
 
 const clickHandler = () => {
   /* eslint-disable no-undef */

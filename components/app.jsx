@@ -92,6 +92,8 @@ const App = props => {
             days={props.days}
             hours={props.hours}
             minutes={props.minutes}
+            title={props.title}
+            content={props.content}
           />
         </StyledTwitterFormContainer>
       </StyledCenterContainer>
