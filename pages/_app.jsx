@@ -2,8 +2,15 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import withReduxStore from '../lib/with-redux-store';
 import { persistor, updateTimerAction } from '../store';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+  }
+`;
 
 class MyApp extends App {
   static async getInitialProps({ Component, router, ctx }) {
@@ -34,6 +41,7 @@ class MyApp extends App {
 
     return (
       <Container>
+        <GlobalStyle />
         <Provider store={reduxStore}>
           <PersistGate loading={null} persistor={persistor(reduxStore)}>
             <Component {...pageProps} />
