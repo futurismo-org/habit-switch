@@ -25,24 +25,9 @@ const textBuilder = props =>
     props
   )}達成しました！%0a${formatText(props.content)}%0a%0a${url}`;
 
-const clickHandler = () => {
-  /* eslint-disable no-undef */
-  window.open(
-    encodeURI(decodeURI(this.href)),
-    'tweetwindow',
-    'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1'
-  );
-  return false;
-};
-
 const TwitterButton = props => (
   <div>
-    <a
-      href={textBuilder(props)}
-      onClick={clickHandler}
-      rel="nofollow"
-      className="twitter-button"
-    >
+    <a href={textBuilder(props)} rel="nofollow" className="twitter-button">
       <Button variant="contained" color={props.color}>
         Twitterでシェア
       </Button>
