@@ -23,7 +23,7 @@ const length = props =>
 const textBuilder = props =>
   `https://twitter.com/intent/tweet?text=${formatText(props.title)}%0a${length(
     props
-  )}達成しました！%0a${formatText(props.content)}%0a%0a${url}`;
+  )}達成しました！%0a%0a${formatText(props.content)}%0a%0a${url}`;
 
 const TwitterButton = props => (
   <div>
