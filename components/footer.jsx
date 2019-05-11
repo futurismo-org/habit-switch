@@ -2,12 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
-  flex-shrink: 0;
   text-align: center;
   background-color: #f44336;
 
   width: 100%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 `;
 
