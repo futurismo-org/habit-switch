@@ -12,7 +12,9 @@ import TwitterForm from './twitter-form';
 import { updateTitle } from '../store';
 
 const StyledCenterContainer = styled.div`
-  margin-top: 80px;
+  @media screen and (max-width: 768px) {
+    margin-top: 80px;
+  }
   display: flex;
   flex-direction: column;
   justify-content: center;
